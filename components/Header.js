@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -68,10 +68,12 @@ const Header = () => {
           </ul>
         </nav>
       </div>
+      <AnimatePresence>
       {isNavOpen && (
         <motion.nav
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 100, transition: {duration: .55, type: 'spring'} }}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 100, transition: {duration: .55, type: 'spring'} }}
+        exit={{y: -200, opactiy: 0, transition: {duration: .13}}}
           className="sm:hidden bg-white border-b border-gray-200"
         >
           <ul className="py-3">
@@ -86,7 +88,7 @@ const Header = () => {
             <li>
               <a
                 className="block font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-base uppercase"
-                href="#"
+                href="/artists"
               >
                 Artists
               </a>
@@ -102,6 +104,7 @@ const Header = () => {
           </ul>
         </motion.nav>
       )}
+      </AnimatePresence>
     </header>
   );
 };
