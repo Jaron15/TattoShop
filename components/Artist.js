@@ -48,10 +48,10 @@ function Artist(props) {
     <div className='flex flex-col items-center justify-center '>
         <img class="inline-block h-48 w-48 rounded-full ring-2 ring-white" src={selectedArtist.image} alt="" />
         <div className='flex flex-col justify-center items-center'>
-            <h1 className='font-semibold text-3xl mt-2 text-center'>
+            <h1 className='font-semibold text-3xl mt-2 text-center text-white'>
                 {selectedArtist.fullName}
             </h1>
-            <p className='mx-8 text-center'>
+            <p className='mx-8 text-center text-white'>
               {props.shortDescription ? selectedArtist.shortDescription : selectedArtist.description}
             </p>
         </div>

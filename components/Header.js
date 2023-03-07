@@ -7,23 +7,23 @@ const Header = () => {
   const toggleNav = () => setIsNavOpen(!isNavOpen);
 
   return (
-    <header className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
+    <header className="bg-zinc-900 shadow-md">
+      <div className="max-w-7xl h-24 mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex-shrink-0">
-          <h1 className="text-xl font-bold text-gray-900">Legion Tattoo</h1>
+          <h1 className="text-2xl font-bold text-white">Legion Tattoo</h1>
         </div>
         <button
           onClick={() => setIsNavOpen(!isNavOpen)}
-          className="sm:hidden block text-gray-500 hover:text-gray-900 focus:text-gray-900 focus:outline-none"
+          className="sm:hidden block text-white  focus:outline-none"
         >
           <svg
-            className="h-6 w-6 fill-current"
+            className="h-9 w-9 fill-white"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
             {isNavOpen ? (
               <path
-              fill="none"
+              fill="white"
               stroke="currentColor"
               strokeWidth="1"
               strokeLinecap="round"
@@ -43,23 +43,26 @@ const Header = () => {
           <ul className="flex">
             <li>
               <a
-                className="font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm uppercase"
-                href="#"
+                className="font-medium hover:text-base hover:transition-all hover:duration-500
+                transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
+                href="/"
               >
                 Home
               </a>
             </li>
             <li>
               <a
-                className="font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm uppercase"
-                href="#"
+                className="font-medium hover:text-base hover:transition-all hover:duration-500
+                transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
+                href="/artists"
               >
-                About
+                Artists
               </a>
             </li>
             <li>
               <a
-                className="font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm uppercase"
+                className="font-medium hover:text-base hover:transition-all hover:duration-500
+                transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
                 href="#"
               >
                 Contact
@@ -74,20 +77,20 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 100, transition: {duration: .55, type: 'spring'} }}
         exit={{y: -200, opactiy: 0, transition: {duration: .13}}}
-          className="sm:hidden bg-white border-b border-gray-200"
+          className="sm:hidden bg-zinc-900 border-b border-gray-200"
         >
           <ul className="py-3">
             <li>
               <a
-                className="block font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-base uppercase"
-                href="#"
+                className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
+                href="/"
               >
                 Home
               </a>
             </li>
             <li>
               <a
-                className="block font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-base uppercase"
+                className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
                 href="/artists"
               >
                 Artists
@@ -95,7 +98,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                className="block font-medium text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-base uppercase"
+                className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
                 href="#"
               >
                 Contact
