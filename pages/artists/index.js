@@ -5,7 +5,7 @@ import Layout from '../../components/Layout'
 function index() {
   return (
     <Layout>
-    <div className='flex bg-zinc-900 flex-col space-y-10 items-center justify-center pt-28'>
+    <div className='flex bg-zinc-900 flex-col space-y-10 items-center justify-center pt-12 pb-12'>
         <Artist name='steve' shortDescription={true} />
         <Artist name='bob'  />
         <Artist name='jim'  />

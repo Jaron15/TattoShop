@@ -63,7 +63,7 @@ const Header = () => {
               <a
                 className="font-medium hover:text-base hover:transition-all hover:duration-500
                 transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
-                href="#"
+                href="/contact"
               >
                 Contact
               </a>
@@ -99,7 +99,7 @@ const Header = () => {
             <li>
               <a
                 className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
-                href="#"
+                href="/contact"
               >
                 Contact
               </a>
