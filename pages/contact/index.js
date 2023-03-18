@@ -21,6 +21,7 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     // handle form submission
   };
   const formVariants = {

@@ -1,4 +1,8 @@
-import React from 'react'
+import {React, useEffect, useState, useRef} from 'react';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+
 
 const artistList = [
    { 
@@ -43,10 +47,61 @@ const artistList = [
 
 function Artist(props) { 
  const selectedArtist = artistList.find((artist) => artist.name === props.name);
- 
+ const [initialDelay, setInitialDelay] = useState(props.initialDelay);
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (!entry.isIntersecting) {
+          setInitialDelay(0);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+
+
+
+const artistVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0.7,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      delay: initialDelay
+    },
+  },
+};
+
+
   return (
-    <div className='flex flex-col items-center justify-center '>
-        <img class="inline-block h-48 w-48 rounded-full ring-2 ring-white" src={selectedArtist.image} alt="" />
+    <motion.div
+    
+      variants={artistVariants}
+      initial="initial"
+      animate={inView ? "visible" : "initial"}
+     className='flex flex-col items-center justify-center'>
+        <img class="inline-block h-48 w-48 rounded-full ring-2 ring-white" 
+        ref={ref}
+        src={selectedArtist.image} 
+        alt="" />
         <div className='flex flex-col justify-center items-center'>
             <h1 className='font-semibold text-3xl mt-2 text-center text-white'>
                 {selectedArtist.fullName}
@@ -55,7 +110,7 @@ function Artist(props) {
               {props.shortDescription ? selectedArtist.shortDescription : selectedArtist.description}
             </p>
         </div>
-    </div>
+    </motion.div>
   )
 }
 

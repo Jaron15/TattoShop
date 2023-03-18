@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import Link from 'next/link';
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -10,7 +10,7 @@ const Header = () => {
     <header className="bg-zinc-900 shadow-md">
       <div className="max-w-7xl h-24 mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div className="flex-shrink-0">
-          <h1 className="text-2xl font-bold text-white">Legion Tattoo</h1>
+          <Link className="text-2xl font-bold text-white" href='/'>Legion Tattoo</Link>
         </div>
         <button
           onClick={() => setIsNavOpen(!isNavOpen)}
@@ -42,31 +42,31 @@ const Header = () => {
         <nav className="sm:block hidden">
           <ul className="flex">
             <li>
-              <a
+              <Link
                 className="font-medium hover:text-base hover:transition-all hover:duration-500
                 transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
                 href="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="font-medium hover:text-base hover:transition-all hover:duration-500
                 transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
                 href="/artists"
               >
                 Artists
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="font-medium hover:text-base hover:transition-all hover:duration-500
                 transform duration-500 ease-in-out text-white  px-3 py-2 rounded-md text-sm uppercase"
                 href="/contact"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -77,32 +77,32 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 100, transition: {duration: .55, type: 'spring'} }}
         exit={{y: -200, opactiy: 0, transition: {duration: .13}}}
-          className="sm:hidden bg-zinc-900 border-b border-gray-200"
+          className="sm:hidden bg-zinc-900 border-b border-gray-200 absolute w-full"
         >
           <ul className="py-3">
             <li>
-              <a
+              <Link
                 className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
                 href="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
                 href="/artists"
               >
                 Artists
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 className="block font-medium text-white px-3 py-2 rounded-md text-base uppercase"
                 href="/contact"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </motion.nav>
